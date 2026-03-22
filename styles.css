@@ -234,6 +234,23 @@ body::after {
 
 .hero-desc + .hero-desc { margin-top: 0; }
 
+.hero-desc-list {
+  list-style: none; padding: 0; margin: 0;
+  max-width: 540px;
+}
+
+.hero-desc-list li {
+  position: relative; padding-left: 16px;
+  color: var(--text-2); font-size: 15px; line-height: 2;
+  margin-bottom: 6px;
+}
+
+.hero-desc-list li::before {
+  content: ""; position: absolute; left: 0; top: 14px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+
 .hero-actions { display: flex; gap: 14px; margin-top: var(--space-lg); }
 
 /* hero about card */
@@ -453,8 +470,8 @@ body::after {
   color: var(--heading); margin-bottom: 4px;
 }
 
-.cat-card p { font-size: 13px; color: var(--text-3); line-height: 1.6; }
-.cat-examples { font-style: italic; opacity: 0.72; margin-top: 6px; font-size: 12px !important; }
+.cat-card p { font-size: 13px; color: var(--text); line-height: 1.6; }
+.cat-examples { font-style: italic; opacity: 0.8; margin-top: 6px; font-size: 12px !important; color: var(--text-2) !important; }
 
 /* ══════════════════════════════════════════
    Works Trio (shared with Author)
@@ -521,7 +538,25 @@ body::after {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
 }
 
+.series-cards .sc-body {
+  flex: 1;
+}
+
+.series-cards .sc-img {
+  margin-top: auto;
+}
+
+.brand-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  align-items: start;
+}
+
+.brand-cards .series-card {
+  display: flex; flex-direction: column;
+}
+
 .series-card {
+  display: flex; flex-direction: column;
   border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
@@ -535,8 +570,7 @@ body::after {
 }
 
 .sc-img {
-  width: 100%; aspect-ratio: 3/4;
-  object-fit: cover; display: block;
+  width: 100%; display: block;
 }
 
 .sc-body {
@@ -550,6 +584,19 @@ body::after {
 }
 
 .sc-body p { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+
+.sc-tag {
+  display: inline-block; padding: 3px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+  background: var(--accent-dim); color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.sc-title-quote {
+  font-family: var(--font-display); font-size: 14px !important;
+  color: var(--heading) !important; font-weight: 500;
+  margin-bottom: 8px;
+}
 
 /* ══════════════════════════════════════════
    2 — Brand: Method
@@ -703,34 +750,40 @@ body::after {
   max-width: 640px;
 }
 
-.life-gallery {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.life-block {
+  margin-bottom: var(--space-xl);
 }
 
-.life-card {
-  border: 1px solid var(--border); border-radius: var(--radius);
-  overflow: hidden; background: var(--surface);
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+.life-block-desc {
+  color: var(--text-2); line-height: 1.8; font-size: 15px;
+  margin-bottom: var(--space-md);
 }
 
-.life-card:hover {
-  border-color: var(--border-h); transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+.life-block-link {
+  margin-bottom: var(--space-md);
 }
 
-.lc-img {
-  width: 100%; aspect-ratio: 1;
-  background:
-    linear-gradient(135deg,
-      hsl(var(--hue, 25) 32% 84%),
-      hsl(var(--hue, 25) 24% 76%)
-    );
+.life-block-link a {
+  color: var(--accent); font-weight: 500; text-decoration: none;
+  border-bottom: 1px solid rgba(176, 99, 48, 0.3);
+  transition: border-color var(--dur) var(--ease);
 }
 
-.lc-caption {
-  padding: 14px 16px; font-size: 13px; color: var(--text-2);
+.life-block-link a:hover {
+  border-color: var(--accent);
+}
+
+.life-imgs-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+.life-imgs-single {
+  grid-template-columns: 1fr; max-width: 50%;
+}
+
+.life-img {
+  width: 100%; display: block; border-radius: var(--radius);
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm);
 }
 
 /* About section removed — content now in hero */
@@ -953,7 +1006,7 @@ body::after {
   .method-arrow { display: none; }
   .case-grid { grid-template-columns: 1fr; }
   .role-analysis { grid-template-columns: 1fr; }
-  .series-cards { grid-template-columns: 1fr; }
+  .series-cards, .brand-cards { grid-template-columns: 1fr; }
   .life-gallery { grid-template-columns: repeat(2, 1fr); }
   .contact-links { grid-template-columns: 1fr; }
 }
