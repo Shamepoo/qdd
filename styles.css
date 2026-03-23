@@ -746,17 +746,17 @@ body::after {
 
 .life-desc {
   color: var(--text-2); line-height: 1.9;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   max-width: 640px;
 }
 
 .life-block {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
 }
 
 .life-block-desc {
   color: var(--text-2); line-height: 1.8; font-size: 15px;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .life-block-link {
